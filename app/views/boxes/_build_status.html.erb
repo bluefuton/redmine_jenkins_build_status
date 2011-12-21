@@ -1,0 +1,25 @@
+<style type="text/css">
+    .jenkins-build-status {
+        color: white;
+        text-align: center;
+        font-size: 16px;
+        opacity: 0.7;        
+    }
+    .jenkins-build-status a {
+        color: white;
+    }
+    .passed {
+        background-color: green;
+    }
+    .failed {
+        background-color: red;
+    }
+    .disabled a {
+        color: #000;
+    }
+</style>
+<div class="jenkins-build-status box <%= job_status %>">
+    <a href="<%= job['url'] %>" target="_blank">
+        Tests <%= job_status %>
+    </a>
+</div>

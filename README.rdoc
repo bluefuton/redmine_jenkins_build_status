@@ -1,0 +1,8 @@
+= redmine_svn_url
+
+Show Subversion URL on project overview.
+
+This is designed for the scenario where you've used a 'file://' URL to point to your repository on the Redmine server, but you need your developers to know what the remote access URL is.
+
+Credits:
+Author: Chris Rosser <chris@bluefuton.com>
