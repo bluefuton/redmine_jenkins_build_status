@@ -15,6 +15,10 @@ production:
   api_url: http://jenkins.example.com/api/json
 </pre>
 
+h2. Conventions
+
+The project identifier used in Jenkins must match the project identifier used in Redmine.
+
 h2. Credits
 
 Author: Chris Rosser <chris@bluefuton.com>
