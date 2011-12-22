@@ -1,5 +1,5 @@
 require 'redmine'
-require 'jenkins_build_status_hooks'
+require 'jenkins_build_status/hooks/view_projects_show_right_hook'
 
 Redmine::Plugin.register :redmine_jenkins_build_status do
   name 'Jenkins Build Status'
