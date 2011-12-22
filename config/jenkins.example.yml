@@ -1,0 +1,5 @@
+development:
+  api_url: http://example.com/api/json
+  
+production:
+  api_url: http://example.com/api/json

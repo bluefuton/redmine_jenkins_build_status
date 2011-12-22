@@ -2,7 +2,15 @@ module RedmineJenkinsBuildStatus
   module Hooks    
     class ViewProjectsShowRightHook < Redmine::Hook::ViewListener
        def view_projects_show_right(context={ })
-         jenkins_api_url = 'http://example.com/api/json'
+         
+         config_path = "#{RAILS_ROOT}/vendor/plugins/redmine_jenkins_build_status/config/jenkins.yml"
+         jenkins_config = YAML.load_file(config_path)[RAILS_ENV]
+         
+         if jenkins_config.nil?
+           raise 'Unable to load Jenkins config. Check that config/jenkins.yml exists.'
+         end 
+         
+         jenkins_api_url = jenkins_config['api_url']
          resp = Net::HTTP.get_response(URI.parse(jenkins_api_url))
          data = resp.body
          result = JSON.parse(data)
