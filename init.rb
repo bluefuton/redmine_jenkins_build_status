@@ -1,4 +1,5 @@
 require 'redmine'
+require 'jenkins_build_status/jenkins_api.rb'
 require 'jenkins_build_status/hooks/view_projects_show_right_hook'
 
 Redmine::Plugin.register :redmine_jenkins_build_status do

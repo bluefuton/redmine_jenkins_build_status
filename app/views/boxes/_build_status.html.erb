@@ -18,8 +18,8 @@
         color: #000;
     }
 </style>
-<div class="jenkins-build-status box <%= job_status %>">
-    <a href="<%= job['url'] %>" target="_blank">
-        Tests <%= job_status %>
+<div class="jenkins-build-status box <%= build_status['status'] %>">
+    <a href="<%= build_status['url'] %>" target="_blank">
+        Tests <%= build_status['status'] %>
     </a>
 </div>
