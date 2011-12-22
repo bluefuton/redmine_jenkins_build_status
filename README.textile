@@ -1,4 +1,4 @@
-h1. redmine-jenkins-build-status
+h1. redmine_jenkins_build_status
 
 A plugin for "Redmine":http://www.redmine.org/.
 
