@@ -2,4 +2,19 @@
 
 A simple indicator showing whether a project's build is currently passing or failing in Jenkins.
 
+!https://github.com/bluefuton/redmine-jenkins-build-status/raw/master/screenshot.jpg!
+
+== Installation
+
+Clone into a folder named 'redmine_jenkins_build_status' inside Redmine's vendor/plugins folder.
+
+Inside the config folder, copy jenkins.example.yml to jenkins.yml and add your Jenkins JSON API URL to it. For example:
+
+<pre>
+production:
+  api_url: http://jenkins.example.com/api/json
+</pre>
+
+== Credits
+
 Author: Chris Rosser <chris@bluefuton.com>
