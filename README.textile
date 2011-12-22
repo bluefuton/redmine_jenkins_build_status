@@ -2,7 +2,7 @@ h1. redmine-jenkins-build-status
 
 A plugin for "Redmine":http://www.redmine.org/.
 
-Shows a simple indicator showing whether a project's build is currently passing or failing in Jenkins.
+Adds a simple indicator to the project overview showing whether a project's build is currently passing or failing in Jenkins.
 
 !https://github.com/bluefuton/redmine_jenkins_build_status/raw/master/screenshot.jpg!
 
