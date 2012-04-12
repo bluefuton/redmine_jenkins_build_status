@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>redmine-jenkins-build-status by bluefuton</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>redmine-jenkins-build-status</h1>
+        <p>A simple indicator for Redmine showing whether a project's build is currently passing or failing in Jenkins</p>
+        <p class="view"><a href="https://github.com/bluefuton/redmine_jenkins_build_status">View the Project on GitHub <small>bluefuton/redmine_jenkins_build_status</small></a></p>
+        <ul>
+          <li><a href="https://github.com/bluefuton/redmine_jenkins_build_status/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/bluefuton/redmine_jenkins_build_status/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/bluefuton/redmine_jenkins_build_status">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>A plugin for <a href="http://www.redmine.org/">Redmine</a>.</p>
+
+<p><img src="https://github.com/bluefuton/redmine_jenkins_build_status/raw/master/screenshot.jpg" alt="redmine-jenkins-build-status screenshot"></p>
+
+<h2>Installation</h2>
+
+<p>Clone into Redmine's vendor/plugins folder.</p>
+
+<p>Inside the plugin's config folder, copy jenkins.example.yml to jenkins.yml and add your Jenkins JSON API URL to it. For example:</p>
+
+<pre>
+production:
+  api_url: <a href="http://jenkins.example.com/api/json">http://jenkins.example.com/api/json</a>
+</pre>
+
+<h2>Conventions</h2>
+
+<p>The project identifier used in Jenkins must match the project identifier used in Redmine.</p>
+
+<h2>Credits</h2>
+
+<p>Author: Chris Rosser <a href="mailto:chris@bluefuton.com">chris@bluefuton.com</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/bluefuton">bluefuton</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
