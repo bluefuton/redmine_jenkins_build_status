@@ -1,5 +1,15 @@
 module RedmineJenkinsBuildStatus
   class JenkinsApi
+
+    def initialize
+      config_path = "#{RAILS_ROOT}/vendor/plugins/redmine_jenkins_build_status/config/jenkins.yml"
+      @jenkins_config ||= YAML.load_file(config_path)
+
+      if @jenkins_config.nil?
+        raise 'Unable to load Jenkins config. Check that config/jenkins.yml exists.'
+      end
+    end
+
     # Returns an array of information about current build status
     def get_build_status_for_project(project_identifier)
       jenkins_config = self.get_config
@@ -45,17 +55,18 @@ module RedmineJenkinsBuildStatus
       
       build_status
     end
-    
+
+    def change_default_hook_position?
+      self.get_global_config["change_default_hook_position"] == true
+    end
+
     protected
     def get_config
-      config_path = "#{RAILS_ROOT}/vendor/plugins/redmine_jenkins_build_status/config/jenkins.yml"
-      jenkins_config = YAML.load_file(config_path)[RAILS_ENV]
-      
-      if jenkins_config.nil?
-        raise 'Unable to load Jenkins config. Check that config/jenkins.yml exists.'
-      end
-      
-      jenkins_config
+      @jenkins_config[RAILS_ENV]
+    end
+
+    def get_global_config
+      @jenkins_config["config"] || {}
     end
   end
 end

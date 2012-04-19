@@ -7,3 +7,6 @@ production:
   api_url: http://example.com/api/json
   username: user
   password: pass
+
+config:
+  change_default_hook_position: false

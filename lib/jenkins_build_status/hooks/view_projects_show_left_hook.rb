@@ -9,7 +9,8 @@ module RedmineJenkinsBuildStatus
            context[:controller].send(:render_to_string, {
              :partial => 'boxes/build_status',
              :locals => { :project => context[:project], 
-                          :build_status => build_status
+                          :build_status => build_status,
+                          :change_default_hook_position => jenkins_api.change_default_hook_position?
                         }
            })
          end
