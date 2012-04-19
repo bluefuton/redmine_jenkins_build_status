@@ -4,7 +4,7 @@ module RedmineJenkinsBuildStatus
        def view_projects_show_left(context={ })
          jenkins_api = JenkinsApi.new
          build_status = jenkins_api.get_build_status_for_project(context[:project].identifier)
-         
+
          unless build_status.nil?
            context[:controller].send(:render_to_string, {
              :partial => 'boxes/build_status',

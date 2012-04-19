@@ -4,6 +4,8 @@ module RedmineJenkinsBuildStatus
     def get_build_status_for_project(project_identifier)
       jenkins_config = self.get_config
       jenkins_api_url = jenkins_config['api_url']
+      jenkins_api_username = jenkins_config['username']
+      jenkins_api_password = jenkins_config['password']
 
       uri = URI.parse(jenkins_api_url)
       http = Net::HTTP.new(uri.host, uri.port)
@@ -14,6 +16,10 @@ module RedmineJenkinsBuildStatus
 
       request = Net::HTTP::Get.new(uri.request_uri)
 
+      if(jenkins_api_username && jenkins_api_password)
+        request.basic_auth(jenkins_api_username, jenkins_api_password)
+      end
+      
       resp = http.request(request)
       data = resp.body
       result = JSON.parse(data)
