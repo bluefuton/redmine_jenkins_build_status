@@ -5,7 +5,16 @@ module RedmineJenkinsBuildStatus
       jenkins_config = self.get_config
       jenkins_api_url = jenkins_config['api_url']
 
-      resp = Net::HTTP.get_response(URI.parse(jenkins_api_url))
+      uri = URI.parse(jenkins_api_url)
+      http = Net::HTTP.new(uri.host, uri.port)
+      if jenkins_api_url =~ /^https/
+        http.use_ssl = true
+        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      end
+
+      request = Net::HTTP::Get.new(uri.request_uri)
+
+      resp = http.request(request)
       data = resp.body
       result = JSON.parse(data)
       jobs = result['jobs']
