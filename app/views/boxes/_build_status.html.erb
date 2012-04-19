@@ -23,3 +23,8 @@
         Tests <%= build_status['status'] %>
     </a>
 </div>
+<script type="text/javascript">
+    Event.observe(document, "dom:loaded", function() {
+        $$('.splitcontentright').first().insert({top : $$('.jenkins-build-status').first()})
+    });
+</script>
