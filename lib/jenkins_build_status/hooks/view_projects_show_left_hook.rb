@@ -10,7 +10,7 @@ module RedmineJenkinsBuildStatus
              :partial => 'boxes/build_status',
              :locals => { :project => context[:project], 
                           :build_status => build_status,
-                          :change_default_hook_position => jenkins_api.change_default_hook_position?
+                          :box_position => jenkins_api.config_box_position
                         }
            })
          end

@@ -56,8 +56,8 @@ module RedmineJenkinsBuildStatus
       build_status
     end
 
-    def change_default_hook_position?
-      self.get_global_config["change_default_hook_position"] == true
+    def config_box_position
+      self.get_global_config["box_position"]
     end
 
     protected

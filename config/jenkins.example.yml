@@ -9,4 +9,4 @@ production:
   password: pass
 
 config:
-  change_default_hook_position: false
+  box_position: bottom
