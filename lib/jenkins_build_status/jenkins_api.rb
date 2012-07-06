@@ -19,6 +19,8 @@ module RedmineJenkinsBuildStatus
         case build_status['color']
         when 'blue'
           job_status = 'passed'
+        when 'blue_anime'
+          job_status = 'building'
         when 'disabled'
           job_status = 'disabled'
         else

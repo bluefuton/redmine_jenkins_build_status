@@ -11,6 +11,9 @@
     .passed {
         background-color: green;
     }
+    .building {
+        background-color: #FF7E00;
+    }
     .failed {
         background-color: red;
     }
@@ -20,6 +23,10 @@
 </style>
 <div class="jenkins-build-status box <%= build_status['status'] %>">
     <a href="<%= build_status['url'] %>" target="_blank">
-        Tests <%= build_status['status'] %>
+        <% unless build_status['status'] == 'building' %>
+            Tests <%= build_status['status'] %>
+        <% else %>
+            Build in progress
+        <% end %>
     </a>
 </div>
