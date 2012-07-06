@@ -10,11 +10,13 @@ h2. Installation
 
 Clone into Redmine's vendor/plugins folder.
 
-Inside the plugin's config folder, copy jenkins.example.yml to jenkins.yml and add your Jenkins JSON API URL to it. For example:
+Inside the plugin's config folder, copy jenkins.example.yml to jenkins.yml and add your Jenkins JSON API URL to it. Also, add your credentials to it (if applicable). For example:
 
 <pre>
 production:
   api_url: http://jenkins.example.com/api/json
+  username: my_name
+  password: my_pass
 </pre>
 
 h2. Conventions

@@ -30,3 +30,10 @@
         <% end %>
     </a>
 </div>
+<% if box_position == "top" %>
+    <script type="text/javascript">
+        Event.observe(document, "dom:loaded", function() {
+            $$('.splitcontentright').first().insert({top : $$('.jenkins-build-status').first()})
+        });
+    </script>
+<% end %>

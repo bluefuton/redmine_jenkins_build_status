@@ -1,5 +1,12 @@
 development:
   api_url: http://example.com/api/json
+  username: user
+  password: pass
   
 production:
   api_url: http://example.com/api/json
+  username: user
+  password: pass
+
+config:
+  box_position: bottom

@@ -1,4 +1,5 @@
 require 'redmine'
+require 'json'
 require 'jenkins_build_status/jenkins_api.rb'
 require 'jenkins_build_status/hooks/view_projects_show_left_hook'
 
