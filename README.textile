@@ -24,3 +24,4 @@ The project identifier used in Jenkins must match the project identifier used in
 h2. Credits
 
 Author: Chris Rosser <chris@bluefuton.com>
+Contributors: "emoreth":https://github.com/emoreth
