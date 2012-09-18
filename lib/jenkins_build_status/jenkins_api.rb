@@ -2,7 +2,7 @@ module RedmineJenkinsBuildStatus
   class JenkinsApi
 
     def initialize
-      config_path = "#{RAILS_ROOT}/vendor/plugins/redmine_jenkins_build_status/config/jenkins.yml"
+      config_path = "#{Rails.root}/plugins/redmine_jenkins_build_status/config/jenkins.yml"
       @jenkins_config ||= YAML.load_file(config_path)
 
       if @jenkins_config.nil?
@@ -64,7 +64,7 @@ module RedmineJenkinsBuildStatus
 
     protected
     def get_config
-      @jenkins_config[RAILS_ENV]
+      @jenkins_config[Rails.env]
     end
 
     def get_global_config

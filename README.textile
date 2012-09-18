@@ -6,9 +6,11 @@ Adds a simple indicator to the project overview showing whether a project's buil
 
 !https://github.com/bluefuton/redmine_jenkins_build_status/raw/master/screenshot.jpg!
 
+*The master branch is compatible with Redmine 2.x only.* If you're still using Redmine 1.x, use the 'redmine-1.x' branch.
+
 h2. Installation
 
-Clone into Redmine's vendor/plugins folder.
+Clone into Redmine's plugins folder.
 
 Inside the plugin's config folder, copy jenkins.example.yml to jenkins.yml and add your Jenkins JSON API URL to it. Also, add your credentials to it (if applicable). For example:
 
@@ -18,6 +20,8 @@ production:
   username: my_name
   password: my_pass
 </pre>
+
+If authentication is not required, the username and password can be omitted.
 
 h2. Conventions
 
