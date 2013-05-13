@@ -30,36 +30,41 @@ module RedmineJenkinsBuildStatus
         request.basic_auth(jenkins_api_username, jenkins_api_password)
       end
       
-      resp = http.request(request)
-      data = resp.body
-      result = JSON.parse(data)
-      jobs = result['jobs']
-  
-      # Is there a Jenkins job for this project?
-      build_status = jobs.detect { |job| job['name'] == project_identifier }
-      
-      # Jenkins doesn't provide a 'status' key, so we have to infer this from the color
-      unless build_status.nil?
-        # What's the job status?
-        case build_status['color']
-        when 'blue'
-          job_status = 'passed'
-        when 'blue_anime'
-          job_status = 'building'
-        when 'disabled'
-          job_status = 'disabled'
-        else
-          job_status = 'failed'
+      begin
+        response = http.request(request)
+        data = response.body
+        result = JSON.parse(data)
+        jobs = result['jobs']
+    
+        # Is there a Jenkins job for this project?
+        build_status = jobs.detect { |job| job['name'] == project_identifier }
+        
+        # Jenkins doesn't provide a 'status' key, so we have to infer this from the color
+        unless build_status.nil?
+          # What's the job status?
+          case build_status['color']
+          when 'blue'
+            job_status = :passed
+          when 'blue_anime'
+            job_status = :building
+          when 'disabled'
+            job_status = :disabled
+          else
+            job_status = :failed
+          end
+
+          build_status['status'] = job_status  
         end
 
-        build_status['status'] = job_status  
+      rescue Exception => e 
+        build_status = { 'status' => :unavailable }
       end
-      
+
       build_status
     end
 
     def config_box_position
-      self.get_global_config["box_position"]
+      self.get_global_config['box_position']
     end
 
     protected
